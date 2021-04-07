@@ -68,6 +68,9 @@ var tekenVijand = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenKogel = function(x, y) {
+  fill("black");
+  circle(400,100,10,);
+  rect(395,100,10,25);
 
 
 };
@@ -79,8 +82,10 @@ var tekenKogel = function(x, y) {
  * @param {number} y y-coördinaat
  */
 var tekenSpeler = function(x, y) {
-  fill("white");
-  ellipse(x, y, 50, 50);
+  fill("salmon");
+  rect(x, y, 50, 50);
+  fill("Brown");
+  rect(200,110,50,40);
 };
 
 
@@ -105,6 +110,7 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegSpeler = function() {
+
 
 };
 

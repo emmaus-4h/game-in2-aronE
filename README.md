@@ -12,8 +12,8 @@ Basis: uitleg, spelen, afgaan en punten
 - [ ] teken speler
 - [ ] beweeg speler
 - [ ] Maak enemies
-- [ ] punten op scherm zetten
-- [ ] punten kunnen scoren
+- [ ] Boosters
+- [ ] Score
 - [ ] uitlegscherm
 - [ ] Wapens Maken/Spawnen
 

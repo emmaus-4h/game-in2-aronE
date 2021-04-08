@@ -25,8 +25,8 @@ var spelStatus = SPELEN;
 var spelerX = 200; // x-positie van speler
 var spelerY = 100; // y-positie van speler
 
-var kogelX = 0;    // x-positie van kogel
-var kogelY = 0;    // y-positie van kogel
+var kogelX = 300;    // x-positie van kogel
+var kogelY = 200;    // y-positie van kogel
 
 var vijandX = 0;   // x-positie van vijand
 var vijandY = 0;   // y-positie van vijand
@@ -69,8 +69,7 @@ var tekenVijand = function(x, y) {
  */
 var tekenKogel = function(x, y) {
   fill("black");
-  circle(400,100,10,);
-  rect(395,100,10,25);
+  rect(x,y,10,25);
 
 
 };
@@ -86,6 +85,14 @@ var tekenSpeler = function(x, y) {
   rect(x, y, 50, 50);
   fill("Brown");
   rect(200,110,50,40);
+  fill("salmon");
+  rect(225,65,20,35);
+  fill("salmon");
+  rect(250,80,20,60);
+   fill("Green");
+  rect(225,80,20,20);
+   fill("Green");
+  rect(250,95,20,50); 
 };
 
 
@@ -101,6 +108,7 @@ var beweegVijand = function() {
  * Updatet globale variabelen met positie van kogel of bal
  */
 var beweegKogel = function() {
+  kogelY = kogelY - 3
 
 };
 

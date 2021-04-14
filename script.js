@@ -2,6 +2,13 @@
 /// <reference path=".gitpod/p5.global-mode.d.ts" />
 "use strict";
 
+/* 14 april tips van gee
+* 1: zorg dat speler getekend wordt op plek x
+*2 : test door aanpassen van spelerX en spelerY
+*3: pas spelerX en spelerY aan bij toetsindruk
+*/
+
+
 /* Game opdracht
    Informatica - Emmauscollege Rotterdam
    Template voor een game in JavaScript met de p5 library
@@ -22,8 +29,11 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var spelerX = 200; // x-positie van speler
-var spelerY = 100; // y-positie van speler
+const KEY_LEFT = 65;
+const KEY_RIGHT = 68;
+
+var spelerX = 400; // x-positie van speler
+var spelerY = 400; // y-positie van speler
 
 var kogelX = 300;    // x-positie van kogel
 var kogelY = 200;    // y-positie van kogel
@@ -46,7 +56,7 @@ var score = 0; // aantal behaalde punten
  * Tekent het speelveld
  */
 var tekenVeld = function () {
-  fill("purple");
+  fill("green");
   rect(20, 20, width - 2 * 20, height - 2 * 20);
 };
 
@@ -57,7 +67,18 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {
-    
+      fill("salmon");
+  rect(300, 300, 50, 50);
+  fill("Brown");
+  rect(300,310,50,40);
+  fill("salmon");
+  rect(325,265,20,35);
+  fill("salmon");
+  rect(350,280,20,60);
+   fill("red");
+  rect(325,280,20,20);
+   fill("red");
+  rect(350,290,20,50); 
 
 };
 
@@ -69,7 +90,7 @@ var tekenVijand = function(x, y) {
  */
 var tekenKogel = function(x, y) {
   fill("black");
-  rect(x,y,10,25);
+  rect(450,y,10,25);
 
 
 };
@@ -84,15 +105,15 @@ var tekenSpeler = function(x, y) {
   fill("salmon");
   rect(x, y, 50, 50);
   fill("Brown");
-  rect(200,110,50,40);
+  rect(x,410,50,40);
   fill("salmon");
-  rect(225,65,20,35);
+  rect(425,365,20,35);
   fill("salmon");
-  rect(250,80,20,60);
-   fill("Green");
-  rect(225,80,20,20);
-   fill("Green");
-  rect(250,95,20,50); 
+  rect(450,380,20,60);
+   fill("lime");
+  rect(425,380,20,20);
+   fill("lime");
+  rect(450,395,20,50); 
 };
 
 
@@ -118,7 +139,12 @@ var beweegKogel = function() {
  * Updatet globale variabele spelerX en spelerY
  */
 var beweegSpeler = function() {
-
+ if(keyIsDown(KEY_LEFT)) {
+   spelerX=spelerX-4;
+ }
+ if(keyIsDown(KEY_RIGHT)) {
+   spelerX=spelerX+4;
+ }
 
 };
 

@@ -31,15 +31,17 @@ var spelStatus = SPELEN;
 
 const KEY_LEFT = 65;
 const KEY_RIGHT = 68;
+const KEY_UP = 87;
+const KEY_DOWN = 83;
 
 var spelerX = 400; // x-positie van speler
-var spelerY = 400; // y-positie van speler
+var spelerY = 500; // y-positie van speler
 
 var kogelX = 300;    // x-positie van kogel
 var kogelY = 200;    // y-positie van kogel
 
-var vijandX = 0;   // x-positie van vijand
-var vijandY = 0;   // y-positie van vijand
+var vijandX = 500;   // x-positie van vijand
+var vijandY = 100;   // y-positie van vijand
 
 var score = 0; // aantal behaalde punten
 
@@ -68,17 +70,17 @@ var tekenVeld = function () {
  */
 var tekenVijand = function(x, y) {
       fill("salmon");
-  rect(300, 300, 50, 50);
+  rect(x,y, 50, 50);
   fill("Brown");
-  rect(300,310,50,40);
+  rect(x,y,50,40);
   fill("salmon");
-  rect(325,265,20,35);
+  rect(x+25,y+50,20,35);
   fill("salmon");
-  rect(350,280,20,60);
+  rect(x+50,y+10,20,60);
    fill("red");
-  rect(325,280,20,20);
+  rect(x+25,y+50,20,20);
    fill("red");
-  rect(350,290,20,50); 
+  rect(x+50,y+10,20,50); 
 
 };
 
@@ -105,15 +107,15 @@ var tekenSpeler = function(x, y) {
   fill("salmon");
   rect(x, y, 50, 50);
   fill("Brown");
-  rect(x,410,50,40);
+  rect(x,y+10,50,40);
   fill("salmon");
-  rect(425,365,20,35);
+  rect(x+25,y-35,20,35);
   fill("salmon");
-  rect(450,380,20,60);
+  rect(x+50,y-20,20,60);
    fill("lime");
-  rect(425,380,20,20);
+  rect(x+25,y-20,20,20);
    fill("lime");
-  rect(450,395,20,50); 
+  rect(x+50,y-5,20,50); 
 };
 
 
@@ -145,6 +147,14 @@ var beweegSpeler = function() {
  if(keyIsDown(KEY_RIGHT)) {
    spelerX=spelerX+4;
  }
+  if(keyIsDown(KEY_UP)) {
+   spelerY=spelerY-4;
+ }
+ if(keyIsDown(KEY_DOWN)) {
+   spelerY=spelerY+4;
+ }
+
+
 
 };
 

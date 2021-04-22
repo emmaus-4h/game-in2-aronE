@@ -33,6 +33,7 @@ const KEY_LEFT = 65;
 const KEY_RIGHT = 68;
 const KEY_UP = 87;
 const KEY_DOWN = 83;
+const KEY_SPACE = 32;
 
 var spelerX = 400; // x-positie van speler
 var spelerY = 500; // y-positie van speler
@@ -80,7 +81,10 @@ var tekenVijand = function(x, y) {
    fill("red");
   rect(x+25,y+50,20,20);
    fill("red");
-  rect(x+50,y+10,20,50); 
+  rect(x+50,y+10,20,50);
+  fill("black");
+  rect(x+35,y+50,15,50);
+  rect(x+38,y+100,8,10)
 
 };
 
@@ -92,7 +96,7 @@ var tekenVijand = function(x, y) {
  */
 var tekenKogel = function(x, y) {
   fill("black");
-  rect(450,y,10,25);
+  rect(x+50,y,8,25);
 
 
 };
@@ -115,7 +119,10 @@ var tekenSpeler = function(x, y) {
    fill("lime");
   rect(x+25,y-20,20,20);
    fill("lime");
-  rect(x+50,y-5,20,50); 
+  rect(x+50,y-5,20,50);
+  fill("black")
+  rect(x+35,y-50,15,50);
+  rect(x+38,y-60,8,10);
 };
 
 
@@ -131,8 +138,11 @@ var beweegVijand = function() {
  * Updatet globale variabelen met positie van kogel of bal
  */
 var beweegKogel = function() {
-  kogelY = kogelY - 3
+kogelY = kogelY - 3;
 
+ if(keyIsDown(KEY_SPACE)) {
+   kogelY=spelerY;
+ }
 };
 
 

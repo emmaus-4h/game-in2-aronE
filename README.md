@@ -11,16 +11,12 @@ Basis: uitleg, spelen, afgaan en punten
 - [x] maak index.html, style.css en script.js met canvas
 - [x] teken speler
 - [x] beweeg speler
-- [ ] Maak enemies
-- [ ] Boosters
+- [x] Maak enemies
 - [ ] Score
 - [ ] uitlegscherm
-- [ ] Wapens Maken/Spawnen
 
 Uitbreiding: *bedenk iets, bijvoorbeeld meer tegenstanders*
-- [ ] meer enemies
-- [ ] extra wapens
-- [ ] 
+- [x]Movement second player
 Uitbreiding: *bedenk iets, bijvoorbeeld bewegende achtergrond*
 - [ ] grass
 - [ ] bomen

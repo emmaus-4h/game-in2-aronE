@@ -155,15 +155,15 @@ var beweegVijand = function() {
     }
 
     if(keyIsDown(KEY_RIGHTARROW)) {
-      vijandX=vijandX-4;
+      vijandX=vijandX+4;
     }
 
     if(keyIsDown(KEY_UPARROW)) {
-      vijandX=vijandX-4;
+      vijandY=vijandY-4;
     }
 
     if(keyIsDown(KEY_DOWNARROW)) {
-      vijandX=vijandX-4;
+      vijandY=vijandY+4;
     }
 };
 

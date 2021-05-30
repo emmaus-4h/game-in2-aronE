@@ -36,6 +36,9 @@ const KEY_DOWN = 83;
 const KEY_SPACE = 32;
 const KEY_SHIFT = 16;
 const KEY_LEFTARROW = 37;
+const KEY_RIGHTARROW = 39;
+const KEY_DOWNARROW = 40;
+const KEY_UPARROW = 38;
 
 var spelerX = 400; // x-positie van speler
 var spelerY = 500; // y-positie van speler
@@ -108,6 +111,13 @@ var tekenKogel = function(x, y) {
 
 };
 
+var tekenBullet = function(x, y) {
+  fill("black");
+  rect(x+ 35,y + 60,8,25);
+
+
+};
+
 
 /**
  * Tekent de speler
@@ -143,6 +153,18 @@ var beweegVijand = function() {
     if(keyIsDown(KEY_LEFTARROW)) {
       vijandX=vijandX-4;
     }
+
+    if(keyIsDown(KEY_RIGHTARROW)) {
+      vijandX=vijandX-4;
+    }
+
+    if(keyIsDown(KEY_UPARROW)) {
+      vijandX=vijandX-4;
+    }
+
+    if(keyIsDown(KEY_DOWNARROW)) {
+      vijandX=vijandX-4;
+    }
 };
 
 
@@ -158,12 +180,17 @@ kogelY = kogelY - 5;
    kogelX = spelerX;
  }
 
+};
+
+var beweegBullet = function() {
+bulletY =bulletY + 5;
+
  if(keyIsDown(KEY_SHIFT)) {
    bulletY=vijandY;
    bulletX=vijandX;
  }
-};
 
+}
 
 
 /**
@@ -245,6 +272,7 @@ function draw() {
       beweegVijand();
       beweegKogel();
       beweegSpeler();
+      beweegBullet();
       
       if (checkVijandGeraakt()) {
         // punten erbij
@@ -260,6 +288,7 @@ function draw() {
       tekenVijand(vijandX, vijandY);
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
+      tekenBullet(bulletX, bulletY)
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;

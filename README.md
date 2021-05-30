@@ -1,6 +1,6 @@
 Deze game is gebaseerd op het template voor 4HV van het Emmauscollege Rotterdam
 
-## Mijn spel: Survival Masters
+## Mijn spel: Battle Masters
 Gemaakt door:
 - Aron Euser
 - is er niet

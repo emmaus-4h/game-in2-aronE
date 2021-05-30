@@ -34,6 +34,8 @@ const KEY_RIGHT = 68;
 const KEY_UP = 87;
 const KEY_DOWN = 83;
 const KEY_SPACE = 32;
+const KEY_SHIFT = 16;
+const KEY_LEFTARROW = 37;
 
 var spelerX = 400; // x-positie van speler
 var spelerY = 500; // y-positie van speler
@@ -43,6 +45,9 @@ var kogelY = 200;    // y-positie van kogel
 
 var vijandX = 500;   // x-positie van vijand
 var vijandY = 100;   // y-positie van vijand
+
+var bulletX = 400;
+var bulletY = 200;
 
 var score = 0; // aantal behaalde punten
 
@@ -70,7 +75,8 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {
-      fill("salmon");
+      while ( x < 400 );
+  fill("salmon");
   rect(x,y, 50, 50);
   fill("Brown");
   rect(x,y,50,40);
@@ -84,7 +90,8 @@ var tekenVijand = function(x, y) {
   rect(x+50,y+10,20,50);
   fill("black");
   rect(x+35,y+50,15,50);
-  rect(x+38,y+100,8,10)
+  rect(x+38,y+100,8,10);
+  x += 50;
 
 };
 
@@ -96,7 +103,7 @@ var tekenVijand = function(x, y) {
  */
 var tekenKogel = function(x, y) {
   fill("black");
-  rect(x+50,y,8,25);
+  rect(x+ 35,y- 45,8,25);
 
 
 };
@@ -126,11 +133,16 @@ var tekenSpeler = function(x, y) {
 };
 
 
+
+
+
 /**
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-    
+    if(keyIsDown(KEY_LEFTARROW)) {
+      vijandX=vijandX-4;
+    }
 };
 
 
@@ -138,12 +150,20 @@ var beweegVijand = function() {
  * Updatet globale variabelen met positie van kogel of bal
  */
 var beweegKogel = function() {
-kogelY = kogelY - 3;
+kogelY = kogelY - 5;
+
 
  if(keyIsDown(KEY_SPACE)) {
    kogelY=spelerY;
+   kogelX = spelerX;
+ }
+
+ if(keyIsDown(KEY_SHIFT)) {
+   bulletY=vijandY;
+   bulletX=vijandX;
  }
 };
+
 
 
 /**

@@ -52,6 +52,13 @@ var vijandY = 100;   // y-positie van vijand
 var bulletX = 400;
 var bulletY = 200;
 
+var kogelsY = [];
+var kogelsX = [];
+
+var bulletsY = [];
+var bulletsX = [];
+
+
 var score = 0; // aantal behaalde punten
 
 
@@ -172,22 +179,28 @@ var beweegVijand = function() {
  * Updatet globale variabelen met positie van kogel of bal
  */
 var beweegKogel = function() {
-kogelY = kogelY - 5;
+  for (var i = 0; i < kogelsY.length; i++) {
+        kogelsY[i] = kogelsY[i] - 5;
+      };
+
 
 
  if(keyIsDown(KEY_SPACE)) {
-   kogelY=spelerY;
-   kogelX = spelerX;
+ kogelsX.push(spelerX);
+  kogelsY.push(spelerY);
  }
 
 };
 
 var beweegBullet = function() {
-bulletY =bulletY + 5;
+   for (var j = 0; j < bulletsY.length; j++) {
+        bulletsY[j] = bulletsY[j] + 5;
+      };
+
 
  if(keyIsDown(KEY_SHIFT)) {
-   bulletY=vijandY;
-   bulletX=vijandX;
+ bulletsX.push(vijandX);
+  bulletsY.push(vijandY);
  }
 
 }
@@ -286,8 +299,16 @@ function draw() {
 
       tekenVeld();
       tekenVijand(vijandX, vijandY);
+
+      for (var i = 0; i < kogelsX.length; i++) {
+        tekenKogel(kogelsX[i],kogelsY[i])
+      };
       tekenKogel(kogelX, kogelY);
       tekenSpeler(spelerX, spelerY);
+
+      for (var j = 0; j < bulletsX.length; j++) {
+        tekenBullet(bulletsX[j],bulletsY[j])
+      };
       tekenBullet(bulletX, bulletY)
 
       if (checkGameOver()) {

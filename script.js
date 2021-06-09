@@ -85,7 +85,6 @@ var tekenVeld = function () {
  * @param {number} y y-coördinaat
  */
 var tekenVijand = function(x, y) {
-      while ( x < 400 );
   fill("salmon");
   rect(x,y, 50, 50);
   fill("Brown");
@@ -101,7 +100,7 @@ var tekenVijand = function(x, y) {
   fill("black");
   rect(x+35,y+50,15,50);
   rect(x+38,y+100,8,10);
-  x += 50;
+ 
 
 };
 
@@ -113,14 +112,14 @@ var tekenVijand = function(x, y) {
  */
 var tekenKogel = function(x, y) {
   fill("black");
-  rect(x+ 35,y- 45,8,25);
+  rect(x + 35,y - 45,8,25);
 
 
 };
 
 var tekenBullet = function(x, y) {
   fill("black");
-  rect(x+ 35,y + 60,8,25);
+  rect(x + 35,y + 60 ,8,25);
 
 
 };
@@ -157,20 +156,20 @@ var tekenSpeler = function(x, y) {
  * Updatet globale variabelen met positie van vijand of tegenspeler
  */
 var beweegVijand = function() {
-    if(keyIsDown(KEY_LEFTARROW)) {
-      vijandX=vijandX-4;
-    }
-
     if(keyIsDown(KEY_RIGHTARROW)) {
-      vijandX=vijandX+4;
+      vijandX=vijandX+5;
     }
 
     if(keyIsDown(KEY_UPARROW)) {
-      vijandY=vijandY-4;
+      vijandY=vijandY-5;
     }
 
     if(keyIsDown(KEY_DOWNARROW)) {
-      vijandY=vijandY+4;
+      vijandY=vijandY+5;
+    }
+    
+        if(keyIsDown(KEY_LEFTARROW)) {
+      vijandX=vijandX-5;
     }
 };
 
@@ -180,7 +179,7 @@ var beweegVijand = function() {
  */
 var beweegKogel = function() {
   for (var i = 0; i < kogelsY.length; i++) {
-        kogelsY[i] = kogelsY[i] - 5;
+        kogelsY[i] = kogelsY[i] - 6;
       };
 
 
@@ -189,12 +188,16 @@ var beweegKogel = function() {
  kogelsX.push(spelerX);
   kogelsY.push(spelerY);
  }
+ 
 
 };
 
+
+
+
 var beweegBullet = function() {
    for (var j = 0; j < bulletsY.length; j++) {
-        bulletsY[j] = bulletsY[j] + 5;
+        bulletsY[j] = bulletsY[j] + 6;
       };
 
 
@@ -212,16 +215,16 @@ var beweegBullet = function() {
  */
 var beweegSpeler = function() {
  if(keyIsDown(KEY_LEFT)) {
-   spelerX=spelerX-4;
+   spelerX=spelerX-5;
  }
  if(keyIsDown(KEY_RIGHT)) {
-   spelerX=spelerX+4;
+   spelerX=spelerX+5;
  }
   if(keyIsDown(KEY_UP)) {
-   spelerY=spelerY-4;
+   spelerY=spelerY-5;
  }
  if(keyIsDown(KEY_DOWN)) {
-   spelerY=spelerY+4;
+   spelerY=spelerY+5;
  }
 
 
@@ -255,7 +258,7 @@ var checkSpelerGeraakt = function() {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
-    
+   if(kogelsX[i]===spelerx && )
   return false;
 };
 
@@ -286,6 +289,7 @@ function draw() {
       beweegKogel();
       beweegSpeler();
       beweegBullet();
+      
       
       if (checkVijandGeraakt()) {
         // punten erbij

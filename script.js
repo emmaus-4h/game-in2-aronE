@@ -258,7 +258,9 @@ var checkSpelerGeraakt = function() {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
-   if(kogelsX[i]===spelerx && )
+   if(kogelsX[i]===spelerx && kogelsY[i]===spelerY )
+   return true
+   if(kogelsX[i]-spelerX <40 && kogelsY[i] - spelerY > -40)
   return false;
 };
 
@@ -321,3 +323,11 @@ function draw() {
       break;
   }
 }
+
+function draw() {
+  switch (spelStatus) {
+    case GAMEOVER:
+    text(100,50,"Game Over")
+  }
+}
+

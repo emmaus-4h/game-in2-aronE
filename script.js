@@ -258,9 +258,17 @@ var checkSpelerGeraakt = function() {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
-   if(kogelsX[i]===spelerx && kogelsY[i]===spelerY )
-   return true
-   if(kogelsX[i]-spelerX <40 && kogelsY[i] - spelerY > -40)
+  for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > spelerX &&
+    kogelsX[i] < spelerX + 70 &&
+    kogelsY[i] > spelerY - 50 &&
+    kogelsY[i] < spelerY + 50) {
+      console.log ("geraakt!!");
+      return true
+    }
+  }
+   
+  
   return false;
 };
 
@@ -321,13 +329,12 @@ function draw() {
         spelStatus = GAMEOVER;
       }
       break;
+
+
+      case GAMEOVER:
+      text(100,50,"Game Over")
   }
 }
 
-function draw() {
-  switch (spelStatus) {
-    case GAMEOVER:
-    text(100,50,"Game Over")
-  }
-}
+
 

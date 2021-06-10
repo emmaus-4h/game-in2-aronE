@@ -29,8 +29,8 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-const AFKOELTIMERSTART = 30;
-const AFKOELTIMERBEGIN = 30;
+const AFKOELTIMERSTART = 60;
+const AFKOELTIMERBEGIN = 60;
 var afkoeltimer = 0;
 
 const KEY_LEFT = 65;
@@ -200,6 +200,14 @@ afkoeltimer=afkoeltimer -1;
 
 };
 
+var  decoration = function() {
+  fill("lightblue")
+  rect(400,250,75,75)
+  fill("grey")
+  rect(300,150,75,75)
+  fill("white")
+  rect(1000,600,75,75)
+}
 
 
 var beweegBullet = function() {
@@ -344,7 +352,8 @@ function draw() {
       for (var j = 0; j < bulletsX.length; j++) {
         tekenBullet(bulletsX[j],bulletsY[j])
       };
-      tekenBullet(bulletX, bulletY)
+      tekenBullet(bulletX, bulletY);
+      decoration();
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;

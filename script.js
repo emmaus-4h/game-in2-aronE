@@ -40,13 +40,13 @@ const KEY_RIGHTARROW = 39;
 const KEY_DOWNARROW = 40;
 const KEY_UPARROW = 38;
 
-var spelerX = 400; // x-positie van speler
+var spelerX = 550; // x-positie van speler
 var spelerY = 500; // y-positie van speler
 
 var kogelX = 300;    // x-positie van kogel
 var kogelY = 200;    // y-positie van kogel
 
-var vijandX = 500;   // x-positie van vijand
+var vijandX = 550;   // x-positie van vijand
 var vijandY = 100;   // y-positie van vijand
 
 var bulletX = 400;
@@ -192,7 +192,7 @@ var beweegKogel = function() {
 
 };
 
-
+var afkoeltimer = function() {}
 
 
 var beweegBullet = function() {
@@ -258,15 +258,26 @@ var checkSpelerGeraakt = function() {
  * @returns {boolean} true als het spel is afgelopen
  */
 var checkGameOver = function() {
-  for(var i = 0; i < kogelsX.length; i++) {
-    if (kogelsX[i] > spelerX &&
-    kogelsX[i] < spelerX + 70 &&
-    kogelsY[i] > spelerY - 50 &&
-    kogelsY[i] < spelerY + 50) {
+  for(var i = 0; i < bulletsX.length; i++) {
+    if (bulletsX[i] > spelerX  &&
+    bulletsX[i] < spelerX + 37 &&
+    bulletsY[i] > spelerY - 20 &&
+    bulletsY[i] < spelerY + 50) {
       console.log ("geraakt!!");
       return true
     }
   }
+
+    for(var i = 0; i < kogelsX.length; i++) {
+    if (kogelsX[i] > vijandX &&
+    kogelsX[i] < vijandX + 37 &&
+    kogelsY[i] > vijandY + 20 &&
+    kogelsY[i] < vijandY + 50) {
+      console.log ("geraakt!!");
+      return true
+    }
+  }
+  
    
   
   return false;
@@ -332,7 +343,12 @@ function draw() {
 
 
       case GAMEOVER:
-      text(100,50,"Game Over")
+      fill("white")
+      textSize(40)
+      text("Reload to start again!!",400,450)
+      textSize(100)
+      text("Game Over", 400,400)
+      
   }
 }
 

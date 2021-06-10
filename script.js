@@ -29,6 +29,10 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
+const AFKOELTIMERSTART = 30;
+const AFKOELTIMERBEGIN = 30;
+var afkoeltimer = 0;
+
 const KEY_LEFT = 65;
 const KEY_RIGHT = 68;
 const KEY_UP = 87;
@@ -183,16 +187,19 @@ var beweegKogel = function() {
       };
 
 
+if (afkoeltimer <= 0 ) {
 
  if(keyIsDown(KEY_SPACE)) {
  kogelsX.push(spelerX);
   kogelsY.push(spelerY);
+ afkoeltimer = AFKOELTIMERSTART;
  }
+}
+afkoeltimer=afkoeltimer -1;
  
 
 };
 
-var afkoeltimer = function() {}
 
 
 var beweegBullet = function() {
@@ -200,11 +207,14 @@ var beweegBullet = function() {
         bulletsY[j] = bulletsY[j] + 6;
       };
 
-
- if(keyIsDown(KEY_SHIFT)) {
+if (afkoeltimer <= 0 ) {
+if(keyIsDown(KEY_SHIFT)) {
  bulletsX.push(vijandX);
   bulletsY.push(vijandY);
+  afkoeltimer = AFKOELTIMERBEGIN;
  }
+}
+afkoeltimer=afkoeltimer -1;
 
 }
 
@@ -271,7 +281,7 @@ var checkGameOver = function() {
     for(var i = 0; i < kogelsX.length; i++) {
     if (kogelsX[i] > vijandX &&
     kogelsX[i] < vijandX + 37 &&
-    kogelsY[i] > vijandY + 20 &&
+    kogelsY[i] > vijandY - 20 &&
     kogelsY[i] < vijandY + 50) {
       console.log ("geraakt!!");
       return true

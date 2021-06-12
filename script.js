@@ -207,6 +207,9 @@ var  decoration = function() {
   rect(300,150,75,75)
   fill("white")
   rect(1000,600,75,75)
+  fill("lightgrey")
+  rect(1150,200,75,75)
+  rect(250,550,75,75)
 }
 
 
@@ -277,7 +280,7 @@ var checkSpelerGeraakt = function() {
  */
 var checkGameOver = function() {
   for(var i = 0; i < bulletsX.length; i++) {
-    if (bulletsX[i] > spelerX  &&
+    if (bulletsX[i] > spelerX - 30 &&
     bulletsX[i] < spelerX + 37 &&
     bulletsY[i] > spelerY - 20 &&
     bulletsY[i] < spelerY + 50) {
@@ -287,7 +290,7 @@ var checkGameOver = function() {
   }
 
     for(var i = 0; i < kogelsX.length; i++) {
-    if (kogelsX[i] > vijandX &&
+    if (kogelsX[i] > vijandX - 30 &&
     kogelsX[i] < vijandX + 37 &&
     kogelsY[i] > vijandY - 20 &&
     kogelsY[i] < vijandY + 50) {
@@ -341,19 +344,29 @@ function draw() {
       }
 
       tekenVeld();
-      tekenVijand(vijandX, vijandY);
+      
 
       for (var i = 0; i < kogelsX.length; i++) {
         tekenKogel(kogelsX[i],kogelsY[i])
       };
+       
+      
       tekenKogel(kogelX, kogelY);
+      tekenBullet(bulletX, bulletY);
+      
+      decoration();
+      
+      tekenVijand(vijandX, vijandY);
       tekenSpeler(spelerX, spelerY);
+      
+      
+     
 
       for (var j = 0; j < bulletsX.length; j++) {
         tekenBullet(bulletsX[j],bulletsY[j])
       };
-      tekenBullet(bulletX, bulletY);
-      decoration();
+      
+      
 
       if (checkGameOver()) {
         spelStatus = GAMEOVER;

@@ -136,7 +136,7 @@ var tekenBullet = function(x, y) {
  */
 var tekenSpeler = function(x, y) {
   fill("salmon");
-  rect(x, y, 50, 50);
+  rect(x, y,50,50);
   fill("Brown");
   rect(x,y+10,50,40);
   fill("salmon");
@@ -210,6 +210,14 @@ var  decoration = function() {
   fill("lightgrey")
   rect(1150,200,75,75)
   rect(250,550,75,75)
+  fill("Brown")
+  rect(900,500,30,90)
+  fill("darkgreen")
+  circle(915,500,75)
+  fill("Brown")
+  rect(200,200,30,90)
+  fill("darkgreen")
+  circle(215,200,75)
 }
 
 
@@ -280,7 +288,7 @@ var checkSpelerGeraakt = function() {
  */
 var checkGameOver = function() {
   for(var i = 0; i < bulletsX.length; i++) {
-    if (bulletsX[i] > spelerX - 30 &&
+    if (bulletsX[i] > spelerX - 50 &&
     bulletsX[i] < spelerX + 37 &&
     bulletsY[i] > spelerY - 20 &&
     bulletsY[i] < spelerY + 50) {
@@ -290,7 +298,7 @@ var checkGameOver = function() {
   }
 
     for(var i = 0; i < kogelsX.length; i++) {
-    if (kogelsX[i] > vijandX - 30 &&
+    if (kogelsX[i] > vijandX - 50 &&
     kogelsX[i] < vijandX + 37 &&
     kogelsY[i] > vijandY - 20 &&
     kogelsY[i] < vijandY + 50) {
